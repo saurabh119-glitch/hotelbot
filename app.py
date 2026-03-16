@@ -1,12 +1,25 @@
 # hotel_bot.py - Hotel booking bot
-import os
+import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
-from flask import Flask, request, jsonify
-import logging
+import random
 
-app = Flask(__name__)
-logging.basicConfig(level=logging.INFO)
+# ✅ ONLY Streamlit code below
+st.set_page_config(
+    page_title="HotelAI Pro - All-in-One Hotel Assistant",
+    page_icon="🏨",
+    layout="wide"
+)
+
+st.title("🏨 HotelAI Pro")
+st.caption("Your 24/7 AI Hotel Assistant")
+
+# Your hotel bot logic here (no Flask!)
+feature = st.selectbox("How can I help you?", ["Check Availability", "Book Room", "Ask Questions"])
+
+if feature == "Check Availability":
+    check_in = st.date_input("Check-in")
+    # ... rest of your Streamlit codelogging.basicConfig(level=logging.INFO)
 
 # Load room availability (from Google Sheets CSV)
 def load_room_data():
